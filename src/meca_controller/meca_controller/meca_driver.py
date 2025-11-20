@@ -10,8 +10,8 @@ to learn the current joint angles, etc.
 The node is designed to be run with a namespace, so that it can be started with:
 ros2 run meca_controller meca_driver --ros-args -r __ns:=/robot1
 
-NOTE: This code was adapted from Jesica Myers ROS2 project (https://github.com/myersjm/mecademic-ros2) and the Mecademic ROS 1 driver node at the following repo:
-(https://github.com/Mecademic/ROS/tree/5c471e98a834b68503c93bd4c6a4719c32e3e491).
+NOTE: This code was adapted from Jessica Myers ROS2 project (https://github.com/myersjm/mecademic-ros2) 
+and the Mecademic ROS 1 driver node at the Mecademic repo:  (https://github.com/Mecademic/ROS/tree/5c471e98a834b68503c93bd4c6a4719c32e3e491).
 
 LICENSE: MIT
 """
@@ -291,7 +291,7 @@ class Meca_Driver(Node):
                     pose.position.z = float(raw_cart_pos[2])
                     
                     # Handle orientation (still using Euler angles in x,y,z as per original)
-                    # FIXME: SG, I feel that should be idealy quarternions
+                    # FIXME: SG, I feel that should be ideally quaternions
                     if len(raw_cart_pos) >= 6: #FIXME: Somehow this makes no sense to me, why should there be less?
                         pose.orientation.x = float(raw_cart_pos[3]) # Alpha
                         pose.orientation.y = float(raw_cart_pos[4]) # Beta

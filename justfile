@@ -70,7 +70,7 @@ rviz2-meca:
   {{ source_all }} && \
   ros2 launch mecademic_description meca.launch.py
 
-# Launch Moveit with Meca Robot model
+# Launch MoveIt with Meca Robot model
 [group('moveit')]
 moveit-meca:
   {{ source_all }} && \
@@ -151,7 +151,7 @@ uninstall-ros2-jazzy:
 install-moveit:
   sudo apt install ros-jazzy-moveit -y
 
-# Installing Moveit for ROS2 Jazzy from Source on Ubuntu 24.04
+# Installing MoveIt for ROS2 Jazzy from Source on Ubuntu 24.04
 [group('build')]
 [confirm]
 install-moveit-source:

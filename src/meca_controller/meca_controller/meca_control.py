@@ -1,10 +1,10 @@
-#!/usr/bin/env python3Publisher
+#!/usr/bin/env python3
 
 """
 Meca_Control, is used to talk with a Mecademic robot and implement common tasks
 necessary to handle pick and place tasks in a nano-fabrication environment.
 
-To implement user-code it is suggested to inherit from this class an implement the run function.
+To implement user-code it is suggested to inherit from this class and implement the run function.
 
 This class heavily benefited from work by Jessica Myers (https://github.com/myersjm/mecademic-ros2, University of Illinois Urbana-Champaign)
 """
@@ -771,7 +771,7 @@ class MecaControl(Node):
         is_still = True
         if self.current_joints_robot and self.current_joints_robot.velocity:
             joint_vels = np.abs(self.current_joints_robot.velocity[:6])
-            # FIXME: this currently does not work because of velocity data somehow wrong.
+            # FIXME: this currently does not work because of velocity data somehow being wrong.
         #     is_still = np.all(joint_vels < vel_threshold)
 
         if pos_error <= pos_tol_mm and orient_error <= orient_tol_deg and is_still:

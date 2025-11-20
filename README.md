@@ -6,14 +6,14 @@ The project uses ROS2 Jazzy and provides an environment for both simulation and 
 
 At the moment we implement a resist development task. It identifies chiplets inside a chip-box, picks them up to move through developer and runs a nitrogen gun at the end controlled using a Serial-port controlled valve.
 
-The hardware components that need to be 3D printend, can be found in `doc/assets/models`.
+The hardware components that need to be 3D printed, can be found in `docs/assets/models`.
 
 ## Bill of Materials
 
 | Component              | Description                                      | Product Number |
 |------------------------|--------------------------------------------------|----------------|
 | MECA500 Robot Arm      | Primary robotic arm for nanofabrication tasks    | Meca500        |
-| Endeffector - Gripper   | Mounts for Techni Tool Tweezer tips. Uses Dowel pins for alignment. | MEGP-25 LS        |
+| End-effector - Gripper   | Mounts for Techni Tool Tweezer tips. Uses Dowel pins for alignment. | MEGP-25 LS        |
 | Realsense   | Depth camera for object detection. | Realsense D405        |
 | Tweezer Tips   | Techni-Pro Tweezer Tips. [Techni-Pro 758TW0304](https://www.techni-tool.com/category/Hand-And-Power-Tools/Hand-Tools/Tweezers/Replacement-Tip-Tweezers/758TW0304-758TW0304) | Techni-Pro 758TW0305      |
 | Chip-box               | Holds chiplets for pickup and placing | Entegris H44-999-1415       |
@@ -26,7 +26,7 @@ The hardware components that need to be 3D printend, can be found in `doc/assets
 > [!IMPORTANT]  
 > Please do not expect this project to just run for you. You can see it as inspiration, help with implementing some of the tasks. This is not a final library you can just install and run. 
 
-The project also contains a few unfinished leads we were following, like recovering some old moveit controller or including an RRTC motion planning algorithm in moveit_linqs.
+The project also contains a few unfinished leads we were following, like recovering some old MoveIt controller or including an RRTC motion planning algorithm in moveit_linqs.
 
 ### Prerequisites
 - Ubuntu 24.04
@@ -35,6 +35,15 @@ The project also contains a few unfinished leads we were following, like recover
 ## Using the Workspace
 
 All commands should be run from the root of the workspace directory. There's no need to modify your bashrc as the justfile handles environment sourcing.
+
+### Running the Demo
+The demo is simplest run by starting three different components and running these commands:
+
+```bash
+just meca-driver
+just bringup
+just meca-demo-develop 
+```
 
 ### Available Commands
 

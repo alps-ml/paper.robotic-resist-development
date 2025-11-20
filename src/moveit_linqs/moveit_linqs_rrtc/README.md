@@ -10,7 +10,7 @@ The RRTConnect algorithm is described originally here:
 
 The implementation contains the following variations from the original algorithm:
 
-    1. Greedy sampling of the goal: Every n-th iterations, sample the goal directly. This bias tree growth towards the goal.
+    1. Greedy sampling of the goal: Every n-th iteration, sample the goal directly. This biases tree growth towards the goal.
 
     2. Greedy 'extend': Instead of extending one 'epsilon' step towards a new sampled configuration, this implementation will make multiple 'epsilon' steps while the new extended node is not in collision and making progress towards the goal.
 
