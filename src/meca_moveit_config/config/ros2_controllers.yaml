@@ -1,0 +1,34 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    meca_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    gripper_controller:
+      type: position_controllers/GripperActionController
+
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+meca_arm_controller:
+  ros__parameters:
+    joints:
+      - meca_axis_1_joint
+      - meca_axis_2_joint
+      - meca_axis_3_joint
+      - meca_axis_4_joint
+      - meca_axis_5_joint
+      - meca_axis_6_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+gripper_controller:
+  ros__parameters:
+    joint: meca_gripper_finger1_joint

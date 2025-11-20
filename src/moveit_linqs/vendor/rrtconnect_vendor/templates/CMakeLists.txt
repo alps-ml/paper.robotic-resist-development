@@ -1,0 +1,66 @@
+# Create patchfile with
+# diff -u --label a/rrtconnect/CMakeLists.txt --label b/rrtconnect/CMakeLists.txt /dev/null ./CMakeLists.txt > ../patches/00_rrtconnect_cmakelists.patch
+
+cmake_minimum_required(VERSION 3.22)
+project(rrtconnect LANGUAGES CXX)
+include(GNUInstallDirs)
+
+set(LIBRARY_TARGET_NAME rrtconnect)
+
+find_package(Boost REQUIRED)
+find_package(Eigen3 REQUIRED)
+find_package(absl REQUIRED)
+find_package(genit REQUIRED)
+find_package(eigenmath REQUIRED)
+
+add_library(${LIBRARY_TARGET_NAME} SHARED)
+add_library(${PROJECT_NAME}::${LIBRARY_TARGET_NAME} ALIAS ${LIBRARY_TARGET_NAME})
+
+target_sources(${PROJECT_NAME} 
+  PRIVATE
+    path_metric.h
+    path_metric.cc
+    rrt.h
+    rrt.cc
+    rrt_connect.h
+    rrt_connect.cc)
+
+target_include_directories(
+    ${PROJECT_NAME}
+    PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../>
+           $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+
+set_target_properties(${LIBRARY_TARGET_NAME}
+                      PROPERTIES VERSION "${rrtconnect_VERSION}")
+
+target_link_libraries(${LIBRARY_TARGET_NAME} 
+  PUBLIC
+    absl::flat_hash_set
+    absl::node_hash_set
+    absl::time
+    absl::log
+    absl::optional
+    genit::iterators
+    eigenmath::quasi_random_vector
+    eigenmath::eigenmath
+)
+
+install(TARGETS ${LIBRARY_TARGET_NAME} 
+        EXPORT ${PROJECT_NAME}-config
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
+
+install(
+    EXPORT ${PROJECT_NAME}-config
+    NAMESPACE ${PROJECT_NAME}::
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
+
+install(
+  FILES 
+    path_metric.h
+    rrt.h
+    rrt_connect.h
+  DESTINATION 
+      "${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}"
+  )

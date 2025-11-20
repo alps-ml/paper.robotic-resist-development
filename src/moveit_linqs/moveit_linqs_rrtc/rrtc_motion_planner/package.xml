@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>rrtc_motion_planner</name>
+  <version>0.0.1</version>
+  <description>RRT Connect motion planner</description>
+
+  <maintainer email="noreply@stanford.edu">LINQS</maintainer>
+  <license>Apache 2.0</license>
+  <url></url>
+
+  <author email="gyger@stanford.edu">Samuel Gyger</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  
+  <depend>moveit_common</depend>
+  <depend>moveit_core</depend>
+  <depend>rclcpp</depend>
+  <depend>rsl</depend>
+  <depend>rrtconnect_vendor</depend>
+  
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

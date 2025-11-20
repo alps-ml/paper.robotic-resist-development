@@ -1,0 +1,10 @@
+# Default initial positions for meca_500_r3's ros2_control fake system
+
+initial_positions:
+  meca_axis_1_joint: 0
+  meca_axis_2_joint: 0
+  meca_axis_3_joint: 0
+  meca_axis_4_joint: 0
+  meca_axis_5_joint: 0
+  meca_axis_6_joint: 0
+  meca_gripper_finger1_joint: 0

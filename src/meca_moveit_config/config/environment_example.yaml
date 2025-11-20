@@ -1,0 +1,35 @@
+objects:
+  - name: my_box
+    type: box
+    size: [0.4, 0.3, 0.2]
+    pose:
+      position: [0.35, 0.0, 0.05]
+      orientation: [0.0, 0.0, 0.0, 1.0]
+
+  - name: beaker
+    type: cylinder
+    size: [0.2, 0.1]   # [height, radius]
+    pose:
+      position: [0.8, 0, 0.05]
+      orientation: [0, 0, 0, 1]
+
+  - name: custom_part
+    type: mesh
+    filename: "meca_500_r3_base_collision.stl"    # must live under meca_moveit_config/meshes/
+    scale: [1.0, 1.0, 1.0]     # optional, defaults to [1,1,1]
+    pose:
+      position: [0.5, -0.6, 0.1]
+      orientation: [0, 0, 0, 1]
+
+  - name: beaker_mesh  # generated .stl using genBeaker.py
+    type: mesh
+    filename: "beaker_test.stl"    # must live under meca_moveit_config/meshes/
+    scale: [1.0, 1.0, 1.0]     # optional, defaults to [1,1,1]
+    pose:
+      position: [0.5, 0.6, 0.1]
+      orientation: [0, 0, 0, 1]
+
+  #- id: shelf
+    #type: mesh
+    #mesh_resource: 'file:///home/linqs/models/shelf.dae'
+    #pose: [0.0, 0.8, 0.5, 0, 0, 0, 1]

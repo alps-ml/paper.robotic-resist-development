@@ -1,0 +1,58 @@
+From bef14e9bf7c5c8e966a19c33aa35b0f4da7d39ab Mon Sep 17 00:00:00 2001
+From: fmayor <fmayor@stanford.edu>
+Date: Wed, 9 Apr 2025 17:38:06 -0700
+Subject: [PATCH] GetRtJointTorq added
+
+to read out the torques
+---
+ mecademicpy/robot.py | 37 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 37 insertions(+)
+
+diff --git a/mecademicpy/robot.py b/mecademicpy/robot.py
+index 996f28f..8c2875a 100644
+--- a/mecademicpy/robot.py
++++ b/mecademicpy/robot.py
+@@ -2279,6 +2279,43 @@ def GetRtTargetJointPos(self,
+ 
+     # mx:export_to=robot_sidecar_globals.py
+     @disconnect_on_exception_decorator
++    def GetRtJointTorq(self,
++                   include_timestamp: bool = False,
++                   synchronous_update: bool = False,
++                   timeout: float = None) -> TimestampedData:
++        """
++        Returns the current joint torques (i.e. the current motor torques) of the robot.
++        
++        The response from the robot is expected to be in one of the following formats:
++          - For 6-axis robots: [timestamp, τ1, τ2, τ3, τ4, τ5, τ6]
++          - For 4-axis robots: [timestamp, τ1, τ2, τ3, τ4]
++        where:
++          - timestamp is in microseconds,
++          - τi is the torque for motor i as a signed percentage of the maximum allowable torque.
++        
++        Parameters
++        ----------
++        include_timestamp : bool, optional
++            If True, the returned data includes the timestamp along with the torques.
++        synchronous_update : bool, optional
++            If True, forces a synchronous update from the robot.
++        timeout : float, optional
++            Maximum time in seconds to wait for a forced update.
++            
++        Returns
++        -------
++        TimestampedData or list of floats
++            Returns a structure containing either:
++              - A TimestampedData object (if include_timestamp is True), or
++              - A list of floats representing the joint torques (in percentage of maximum torque).
++        """
++        if include_timestamp:
++            return self._robot_rt_data.rt_joint_torq
++        else:
++            return self._robot_rt_data.rt_joint_torq.data
++                
++    
++    
+     def GetJoints(self, synchronous_update: bool = False, timeout: float = None):
+         """Legacy command. Please use GetRtTargetJointPos instead."""
+         return super().GetRtTargetJointPos(include_timestamp=False,

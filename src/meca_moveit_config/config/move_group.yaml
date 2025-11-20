@@ -1,0 +1,15 @@
+move_group:
+  ros__parameters:
+    publish_interactive_markers: true
+    default_planning_pipeline: ompl
+    planning_pipelines: [ompl, chomp, rrtc]
+    
+  # Namespace for the OMPL planning pipeline
+  ompl:
+    planning_plugin: ompl_interface/OMPLPlanner
+  
+  chomp:
+    planning_plugin: chomp_interface/CHOMPPlanner
+  
+  rrtc:
+    planning_plugin: rrtc_motion_planner/RRTCPlanner

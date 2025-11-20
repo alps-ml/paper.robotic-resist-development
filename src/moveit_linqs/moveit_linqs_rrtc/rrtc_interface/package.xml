@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>moveit_linqs_rrtc</name>
+  <version>0.1.0</version>
+  <description>The interface for using the EDR-RRTC library within MoveIt</description>
+
+  <maintainer email="noreply@stanford.edu">LINQS</maintainer>
+
+  <license>Apache 2</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>moveit_common</depend>
+  <depend>moveit_core</depend>
+  <depend>pluginlib</depend>
+  <depend>rclcpp</depend>
+
+  <depend>rrtc_motion_planner</depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+    <moveit_core 
+      plugin="${prefix}/plugins/rrtc_interface_plugin_description.xml" />
+  </export>
+</package>

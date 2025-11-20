@@ -1,0 +1,50 @@
+# Create patchfile with
+# diff -u --label a/genit/CMakeLists.txt --label b/genit/CMakeLists.txt /dev/null ./CMakeLists.txt > ../patches/00_genit_cmakelists.patch
+
+cmake_minimum_required(VERSION 3.16)
+project(genit
+        VERSION 1.0.0 
+        LANGUAGES CXX)
+include(GNUInstallDirs)
+
+set(LIBRARY_TARGET_NAME iterators)
+
+find_package(absl REQUIRED)
+
+add_library(${LIBRARY_TARGET_NAME} INTERFACE)
+add_library(${PROJECT_NAME}::${LIBRARY_TARGET_NAME} ALIAS ${LIBRARY_TARGET_NAME})
+
+target_include_directories(${LIBRARY_TARGET_NAME} INTERFACE 
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/..>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+    )
+
+target_link_libraries(${LIBRARY_TARGET_NAME} 
+    INTERFACE
+        absl::variant
+        absl::utility
+)
+
+install(TARGETS ${LIBRARY_TARGET_NAME} 
+        EXPORT ${PROJECT_NAME}-config)
+install(
+    EXPORT ${PROJECT_NAME}-config
+    NAMESPACE ${PROJECT_NAME}::
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
+
+install(FILES 
+            adjacent_circular_iterator.h
+            adjacent_iterator.h
+            bitset_iterator.h
+            cached_iterator.h
+            circular_iterator.h
+            concat_range.h
+            filter_iterator.h
+            iterator_facade.h
+            iterator_range.h
+            stride_iterator.h
+            transform_iterator.h
+            zip_iterator.h
+        DESTINATION 
+            "${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}"
+        )

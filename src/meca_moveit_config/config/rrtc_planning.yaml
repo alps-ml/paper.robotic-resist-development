@@ -1,0 +1,30 @@
+planning_plugins:
+  - rrtc_interface/RRTCPlanner
+
+request_adapters:
+  - default_planning_request_adapters/ResolveConstraintFrames
+  - default_planning_request_adapters/ValidateWorkspaceBounds
+  - default_planning_request_adapters/CheckStartStateBounds
+  - default_planning_request_adapters/CheckStartStateCollision
+
+response_adapters:
+#  - chomp/OptimizerAdapter
+#  - stomp/SmoothingAdapter
+  - default_planning_response_adapters/AddTimeOptimalParameterization
+  - default_planning_response_adapters/ValidateSolution
+  - default_planning_response_adapters/DisplayMotionPath
+
+# the maximum time (in seconds) to spend planning, set to zero to disable.
+planning_time_limit: 0.0
+
+# the maximum number of iterations to use when sampling new positions. 
+max_iterations: 10000
+
+# no configuration space step will be larger in magnitude than this value.
+configuration_space_step: 0.03
+
+# the number of samples between occasions when a direct path to the goal is tried. If <2 it is never tried.
+iters_between_goal_checks: 3
+
+# the minimum distance that needs to be maintained to avoid obstacles (Not implemented atm)
+min_clearance: 0.2

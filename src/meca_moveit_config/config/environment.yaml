@@ -1,0 +1,21 @@
+objects:
+  - name: cup_mesh_left  # generated .stl using genBeaker.py
+    type: mesh
+    filename: "cup_hollow_tapered.stl"    # must live under meca_moveit_config/meshes/
+    scale: [1.0, 1.0, 1.0]     # optional, defaults to [1,1,1]
+    pose:
+      position: [0.215, -0.077, 0.0] # [x, y, z] = [forward, right, up]
+      orientation: [0, 0, 0, 1]
+  - name: cup_mesh_right  # generated .stl using genBeaker.py
+    type: mesh
+    filename: "cup_hollow_tapered.stl"    # must live under meca_moveit_config/meshes/
+    scale: [1.0, 1.0, 1.0]     # optional, defaults to [1,1,1]
+    pose:
+      position: [0.215, 0.019, 0.0] # [x, y, z] = [forward, right, up]
+      orientation: [0, 0, 0, 1]
+  - name: breadboard
+    type: box
+    size: [0.8, 0.8, 0.01]
+    pose:
+      position: [0.0, 0.0, -0.01]
+      orientation: [0.0, 0.0, 0.0, 1.0]

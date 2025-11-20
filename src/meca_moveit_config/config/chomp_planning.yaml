@@ -1,0 +1,19 @@
+planning_plugins:
+  - chomp_interface/CHOMPPlanner
+
+# Use existing Trajectory
+trajectory_initialization_method: "fillTrajectory"
+
+# Already collision free
+planning_time_limit: 5.0
+max_iterations: 200
+max_iterations_after_collision_free: 100
+
+learning_rate: 0.04
+ridge_factor: 0.001
+
+# Perhaps has to be increased up to 1.0 (no obstacles allowed)
+obstacle_cost_weight: 0.5
+smoothness_cost_weight: 0.8
+
+

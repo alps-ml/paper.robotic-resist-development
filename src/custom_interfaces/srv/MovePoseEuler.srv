@@ -1,0 +1,12 @@
+# custom_interfaces/srv/MovePoseEuler.srv 
+# Using Euler angles directly as the driver likely expects
+float64 x
+float64 y
+float64 z
+float64 alpha
+float64 beta
+float64 gamma
+---
+# Response part
+bool success 
+string error_message 

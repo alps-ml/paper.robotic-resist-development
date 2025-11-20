@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>eigenmath_vendor</name>
+  <version>1.0.0</version>
+  <description>This package contains common math functionality useful in higher level robotics algorithms, implemented using Eigen.</description>
+  <maintainer email="noreply@stanford.edu">LINQS</maintainer>
+  <license>Apache License 2.0</license>  <!-- the contents of this package and Abseil are Apache 2.0 -->
+
+  <url type="website">https://github.com/theteamatx/x-edr-eigenmath</url>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_vendor_package</buildtool_depend>
+  
+  <depend>eigen</depend>
+  <depend>absl_vendor</depend>
+  <depend>genit_vendor</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

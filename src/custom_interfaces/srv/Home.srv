@@ -1,0 +1,4 @@
+# custom_interfaces/srv/Home.srv
+---
+bool success
+string error_message

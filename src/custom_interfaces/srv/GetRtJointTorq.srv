@@ -1,0 +1,8 @@
+bool include_timestamp
+bool synchronous_update
+float64 timeout
+---
+bool success
+int64 timestamp
+float64[] torques
+string error_message

@@ -1,0 +1,9 @@
+<library path="moveit_linqs_rrtc">
+  <class name="rrtc_interface/RRTCPlanner" 
+         type="rrtc_interface::RRTCPlannerManager" 
+         base_class_type="planning_interface::PlannerManager">
+    <description>
+    The RRTC motion planner plugin.
+    </description>
+  </class>
+</library>

@@ -1,0 +1,9 @@
+<library path="moveit_linqs_historical_stomp_smoothing_adapter">
+  <class name="stomp/SmoothingAdapter" 
+         type="stomp_moveit::SmoothingAdapter"
+         base_class_type="planning_interface::PlanningResponseAdapter">
+    <description>
+      A STOMP-based motion planning response adapter, smoothing an existing path.
+    </description>
+  </class>
+</library>

@@ -1,0 +1,3 @@
+[submodule "src/moveit2_calibration"]
+	path = src/moveit2_calibration
+	url = https://github.com/gyger/moveit2_calibration.git

@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<library path="meca_500_r3_meca_arm_moveit_ikfast_plugin">
+  <class name="meca_500_r3_meca_arm/IKFastKinematicsPlugin" type="meca_500_r3_meca_arm::IKFastKinematicsPlugin" base_class_type="kinematics::KinematicsBase">
+    <description>IKFast61 plugin for closed-form kinematics of meca_500_r3 meca_arm</description>
+  </class>
+</library>

@@ -1,0 +1,5 @@
+# custom_interfaces/srv/WaitIdle.srv
+float64 timeout_sec 
+---
+bool success
+string error_message 

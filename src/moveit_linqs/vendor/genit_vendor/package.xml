@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>genit_vendor</name>
+  <version>1.0.0</version>
+  <description>Generic Iterators Library (genit)  contains a collection of generic iterators and ranges that can be used to create various transformations on basic iterators.</description>
+  <maintainer email="noreply@stanford.edu">LINQS</maintainer>
+  <license>Apache License 2.0</license>  <!-- the contents of this package and Genit are Apache 2.0 -->
+  <url type="website">https://github.com/theteamatx/x-edr-genit</url>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_vendor_package</buildtool_depend>
+
+  <depend>absl_vendor</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

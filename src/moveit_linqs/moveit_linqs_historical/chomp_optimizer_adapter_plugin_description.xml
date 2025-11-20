@@ -1,0 +1,9 @@
+<library path="moveit_linqs_historical_chomp_optimizer_adapter">
+  <class name="chomp/OptimizerAdapter" 
+         type="chomp::OptimizerAdapter"
+         base_class_type="planning_interface::PlanningResponseAdapter">
+    <description>
+      A CHOMP-based motion planning response adapter, improving an existing path.
+    </description>
+  </class>
+</library>

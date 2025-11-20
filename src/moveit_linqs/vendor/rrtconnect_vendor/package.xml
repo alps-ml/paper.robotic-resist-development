@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>rrtconnect_vendor</name>
+  <version>0.0.0</version> <!--233a412-->
+  <description>RRTConnect algorithm</description>
+
+  <maintainer email="noreply@stanford.edu">LINQS</maintainer>
+  <license>Apache License 2.0</license>
+  <url></url>
+  <author email="gyger@stanford.edu">Samuel Gyger</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  
+  <depend>boost</depend>
+  <depend>eigen</depend>
+  <depend>eigenmath_vendor</depend>
+  
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
